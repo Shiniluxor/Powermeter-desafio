@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-secondary" href="{% url 'Mediciones_list' %}">
+    Liasta de mediciones
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>Consumo registrado</td><td>{{ object.consumo_reg }}</td></tr>
+    <tr><td>Fecha de alta</td><td>{{ object.created }}</td></tr>
+    <tr><td>Medidor</td><td><a href="{{ object.medidor_id.get_absolute_url }}">{{ object.medidor_id.llave_id }}</a></td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Editar</a>
+
+{% endblock %}

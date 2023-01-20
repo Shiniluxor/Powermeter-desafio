@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-secondary" href="{% url 'Medidores_list' %}">
+    Lista de medidores
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="nombre">nombre: </label>
+      <input class="form-control col-sm-10"'
+         id="nombre" type="text"
+         name="nombre" value="{{ object.nombre }}">
+  </div>
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="llave_id">llave_id: </label>
+      <input class="form-control col-sm-10"'
+         id="llave_id" type="text"
+         name="llave_id" value="{{ object.llave_id }}">
+  </div>
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="created">created: </label>
+      <input class="form-control col-sm-10"
+         id="created" type="datetime-local"
+         name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+      <input class="form-control col-sm-10"
+         id="last_updated" type="datetime-local"
+         name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+      <label class="col-sm-2 col-form-label" for="Id">Id: </label>
+      <input class="form-control col-sm-10"'
+         id="Id" type="text"
+         name="Id" value="{{ object.Id }}">
+  </div>
+  <input type="submit" value="Guardar" class="btn btn-primary">
+</form>
+
+{% endblock %}

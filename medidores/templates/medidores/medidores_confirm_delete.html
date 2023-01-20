@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <p>Esta seguro de eliminar el medidor "{{ object.llave_id }}"?<br>
+    Se eliminaran sus mediciones asociadas.
+  </p>
+  <div>
+    <input class="btn btn-danger" value="Eliminar medidor" type="submit">
+  </div>
+</form>
+{% endblock %}

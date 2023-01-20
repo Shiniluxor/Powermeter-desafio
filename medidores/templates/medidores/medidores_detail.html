@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-secondary" href="{% url 'Medidores_list' %}">
+    Liasta de medidores
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>nombre</td><td>{{ object.nombre }}</td></tr>
+    <tr><td>llave_id</td><td>{{ object.llave_id }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Editar</a>
+
+{% endblock %}

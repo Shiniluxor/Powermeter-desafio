@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="m-2">
+  <table class="table">          
+    <tr>
+      <td>Editar</td>
+      <td>Consumo registrado</td>
+      <td>Fecha de medicion</td>
+      <td>Medidor asociado</td>
+      <td>Borrar medicion</td>
+    </tr>
+    {% for object in object_list %}
+      <tr>
+        <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+        <td>{{ object.consumo_reg }}</td>
+        <td>{{ object.created }}</td>
+        <td>
+          <a href="{{ object.medidor_id.get_absolute_url }}">{{ object.medidor_id.llave_id }}</a>
+        </td>
+        <td>
+          <a class="btn btn-primary" href="{% url 'Mediciones_delete' pk=object.pk %}">
+            Borrar
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+<div>
+  <a class="btn btn-primary"
+    href="{% url 'Mediciones_create' %}">
+  Crear nueva medicion
+  </a>
+</div>
+{% endblock %}
